@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --color-primary: #F8F9FA;
+    --color-secondary: #2C3E50;
+    --color-tertiary: #3498DB;
+    --color-cuaternary: #34495E;
+    
+    --fuente-montserrat: 'Montserrat', sans-serif;
+    --fuente-krona: 'Krona One', sans-serif;
+}
+
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    box-sizing: border-box;
+}
+.header{
+    padding: 2% 0% 0% 20%;
+}
+.header__menu {
+    display: flex;
+    gap: 80px;
+}
+.header__menu__link {
+    padding: 10px 15px;
+}
+
+.header__menu__link {
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-tertiary);
+    margin: 0 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.header__menu__link:hover {
+    color: var(--color-cuaternary);
+}
+
+.presentacion{
+    display: flex;
+    align-items: center;
+    
+    justify-content: space-between;
+    padding: 5% 21%;
+    gap:82px;
+}
+
+/* Para las páginas about y cv, ajustar el layout para dar más espacio al texto */
+body:has(.presentacion__contenido__titulo:first-child:is(h1)) .presentacion {
+    justify-content: flex-start;
+    gap: 5%;
+}
+.presentacion__contenido{
+    width: 50%;
+    display:flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Para las páginas about y cv, dar más espacio al contenido */
+body:has(.presentacion__contenido__titulo:first-child:is(h1)) .presentacion__contenido {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.presentacion__contenido__titulo{
+   font-size: 2.25rem;
+   font-family: var(--fuente-krona);
+
+}
+.titulo-destaque{
+    color: var(--color-tertiary);
+}
+.presentacion__contenido__texto{
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    text-align: justify;
+}
+.presentacion__enlaces{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+.presentacion__enlaces__link{
+    width: 50%;
+    text-align: center;
+    padding: 21.5px 0;
+    border-radius: 8px;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color:var(--color-secondary);
+    border: 2px solid var(--color-tertiary);
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    align-items: center;
+    position: relative;
+   
+}
+
+.presentacion__enlaces__link:hover{
+    background-color: var(--color-cuaternary);
+    font-size: 1.5625rem;
+    padding: 3%;
+    cursor: pointer;
+}
+.presentacion__enlaces__link img {
+    width: 32px;
+    height: 32px;
+    transform: translateY(-3px);
+}
+.presentacion__contenido__texto a{
+    text-decoration: none;
+    color: var(--color-tertiary);
+}
+.imagen {
+    vertical-align: middle;
+    height:550px;
+    width:50%;
+    margin:10%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(52, 73, 94, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagen:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(52, 73, 94, 0.25);
+}
+
+/* Para las páginas about y cv, hacer la imagen más pequeña */
+body:has(.presentacion__contenido__titulo:first-child:is(h1)) .imagen {
+    height: 350px;
+    margin: 2%;
+}
+
+.footer{
+    background-color: var(--color-secondary);
+    padding: 1.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 400;
+
+}
+
+/* Media Query para tablets grandes */
+@media (max-width: 1200px) {
+    .header{
+        padding: 8% 5%;
+    }
+    .header__menu{
+        justify-content: center;
+        gap: 60px;
+    }
+    .presentacion{
+        flex-direction: column-reverse;
+        padding: 5%;
+        gap: 40px;
+    }
+    .presentacion__contenido{
+        width: auto;
+    }
+    .imagen {
+        height: 400px;
+        width: 60%;
+        margin: 5%;
+    }
+}
+
+/* Media Query para tablets */
+@media (max-width: 800px) {
+    .header{
+        padding: 6% 4%;
+    }
+    .header__menu{
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+    .header__menu__link {
+        font-size: 1.3rem;
+        padding: 8px 12px;
+    }
+    .presentacion{
+        padding: 4%;
+        gap: 30px;
+    }
+    .presentacion__contenido__titulo{
+        font-size: 2rem;
+    }
+    .presentacion__contenido__texto{
+        font-size: 1.3rem;
+    }
+    .presentacion__enlaces__link{
+        font-size: 1.3rem;
+        width: 60%;
+    }
+    .imagen {
+        height: 350px;
+        width: 70%;
+        margin: 3%;
+    }
+    .footer{
+        font-size: 1.3rem;
+        padding: 1.2rem;
+    }
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 480px) {
+    .header{
+        padding: 4% 2%;
+    }
+    .header__menu{
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .header__menu__link {
+        font-size: 1.1rem;
+        padding: 6px 10px;
+        margin: 0;
+    }
+    .presentacion{
+        padding: 3% 2%;
+        gap: 25px;
+    }
+    .presentacion__contenido{
+        width: 100%;
+        gap: 25px;
+    }
+    .presentacion__contenido__titulo{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .presentacion__contenido__texto{
+        font-size: 1.1rem;
+        text-align: left;
+        line-height: 1.6;
+    }
+    .presentacion__enlaces{
+        gap: 20px;
+    }
+    .presentacion__enlaces__link{
+        font-size: 1.1rem;
+        width: 80%;
+        padding: 15px 0;
+    }
+    .presentacion__enlaces__link img {
+        width: 24px;
+        height: 24px;
+    }
+    .imagen {
+        height: 250px;
+        width: 85%;
+        margin: 2%;
+    }
+    .footer{
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+    
+    /* Ajustes específicos para páginas about y cv en móviles */
+    body:has(.presentacion__contenido__titulo:first-child:is(h1)) .presentacion__contenido {
+        width: 100%;
+    }
+    
+    body:has(.presentacion__contenido__titulo:first-child:is(h1)) .imagen {
+        height: 200px;
+        width: 90%;
+        margin: 1%;
+    }
+}
+
+/* Media Query para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    .header{
+        padding: 3% 1%;
+    }
+    .header__menu__link {
+        font-size: 1rem;
+        padding: 5px 8px;
+    }
+    .presentacion{
+        padding: 2% 1%;
+        gap: 20px;
+    }
+    .presentacion__contenido__titulo{
+        font-size: 1.4rem;
+    }
+    .presentacion__contenido__texto{
+        font-size: 1rem;
+    }
+    .presentacion__enlaces__link{
+        font-size: 1rem;
+        width: 90%;
+        padding: 12px 0;
+    }
+    .presentacion__enlaces__link img {
+        width: 20px;
+        height: 20px;
+    }
+    .imagen {
+        height: 200px;
+        width: 95%;
+        margin: 1%;
+    }
+    .footer{
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .presentacion__enlaces__link:hover{
+        background-color: var(--color-tertiary);
+        color: var(--color-primary);
+        transform: scale(1.02);
+    }
+    
+    .header__menu__link:hover {
+        color: var(--color-cuaternary);
+        transform: scale(1.05);
+    }
+    
+    .imagen:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(52, 73, 94, 0.2);
+    }
+}
